@@ -78,6 +78,10 @@ You can also filter the documentation with a keyword:
 Generate HTML with the `--html` switch:
 
     pdoc --html csv
+    
+Generate Markdown with the `--markdown` switch:
+
+    pdoc --markdown csv
 
 A file called `csv.m.html` will be written to the current directory.
 
