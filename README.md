@@ -10,36 +10,35 @@ To see what generated documentation looks like, check out the
 
 Prominent features include:
 
-* Support for documenting data representation by traversing the abstract syntax 
-  to find docstrings for module, class and instance variables.
-* For cases where docstrings aren't appropriate (like a
-  [namedtuple](http://docs.python.org/2.7/library/collections.html#namedtuple-factory-function-for-tuples-with-named-fields)),
-  the special variable `__pdoc__` can be used in your module to
-  document any identifier in your public interface.
-* Usage is simple. Just write your documentation as Markdown. There are no 
-  added special syntax rules.
-* `pdoc` respects your `__all__` variable when present.
-* `pdoc` will automatically link identifiers in your docstrings to its
-  corresponding documentation.
-* When `pdoc` is run as an HTTP server, external linking is supported between 
-  packages.
-* The `pdoc` HTTP server will cache generated documentation and automatically
-  regenerate it if the source code has been updated.
-* When available, source code for modules, functions and classes can be viewed 
-  in the HTML documentation.
-* Inheritance is used when possible to infer docstrings for class members.
+- Support for documenting data representation by traversing the abstract syntax 
+to find docstrings for module, class and instance variables.
+- For cases where docstrings aren't appropriate (like a
+[namedtuple](http://docs.python.org/2.7/library/collections.html#namedtuple-factory-function-for-tuples-with-named-fields)),
+the special variable `__pdoc__` can be used in your module to
+document any identifier in your public interface.
+- Usage is simple. Just write your documentation as Markdown. There are no 
+added special syntax rules.
+- `pdoc` respects your `__all__` variable when present.
+- `pdoc` will automatically link identifiers in your docstrings to its
+corresponding documentation.
+- When `pdoc` is run as an HTTP server, external linking is supported between 
+packages.
+- The `pdoc` HTTP server will cache generated documentation and automatically
+regenerate it if the source code has been updated.
+- When available, source code for modules, functions and classes can be viewed 
+in the HTML documentation.
+- Inheritance is used when possible to infer docstrings for class members.
 
 The above features are explained in more detail in pdoc's documentation.
 
 `pdoc` has been tested on Python 2.6, 2.7 and 3.3.
 
+## Installation
 
-Installation
-------------
-`pdoc` is [on PyPI](https://pypi.python.org/pypi/pdoc) and is installable via 
-`pip`:
-
-    pip install pdoc
+```
+pip install -r requirements.txt
+python setup.py install
+```
 
 Dependencies are [mako](https://pypi.python.org/pypi/Mako) and
 [markdown](https://pypi.python.org/pypi/Markdown). (If you're using Python
@@ -48,61 +47,73 @@ Dependencies are [mako](https://pypi.python.org/pypi/Mako) and
 [Pygments](https://pypi.python.org/pypi/Pygments) is an optional dependency. 
 When it's installed, source code will have syntax highlighting.
 
+## Documentation
 
-Documentation
--------------
 Documentation for the `pdoc` library is available from `pdoc` itself:
 [pdoc.burntsushi.net/pdoc](http://pdoc.burntsushi.net/pdoc). The documentation 
 includes a more in depth description of the features listed above.
 
+## Example usage
 
-Example usage
--------------
 `pdoc` will accept a Python module file, package directory or an import path.
 For example, to view the documentation for the `csv` module in the console:
 
-    pdoc csv
+```
+pdoc csv
+```
 
 Or, you could view it by pointing at the file directly:
 
-    pdoc /usr/lib/python2.7/csv.py
+```
+pdoc /usr/lib/python2.7/csv.py
+```
 
 Submodules are fine too:
 
-    pdoc multiprocessing.pool
+```
+pdoc multiprocessing.pool
+```
 
 You can also filter the documentation with a keyword:
 
-    pdoc csv reader
+```
+pdoc csv reader
+```
 
 Generate HTML with the `--html` switch:
 
-    pdoc --html csv
-    
+```
+pdoc --html csv
+```
+
 Generate Markdown with the `--markdown` switch:
 
-    pdoc --markdown csv
+```
+pdoc --markdown csv
+```
 
 A file called `csv.m.html` will be written to the current directory.
 
 Or start an HTTP server that shows documentation for any installed module:
 
-    pdoc --http
+```
+pdoc --http
+```
 
 Then open your web browser to `http://localhost:8080`.
 
 There are many other options to explore. You can see them all by running:
 
-    pdoc --help
+```
+pdoc --help
+```
 
+## License
 
-License
--------
 It's [in the public domain](http://unlicense.org).
 
+## Motivation
 
-Motivation
-----------
 At the time of writing, there are three tools I know of that provide automatic
 documentation for my Python packages. Those tools are
 [pydoc](http://docs.python.org/2/library/pydoc.html),
@@ -121,4 +132,3 @@ was in 2008 and it is not compatible with Python 3. In addition to the web
 pages it produces being difficult for me to browse, `epydoc` is over 10,000 
 lines of code (not including comments or HTML generation). By the same measure,
 `pdoc` is under 800 lines of code.
-
