@@ -86,12 +86,6 @@ Generate HTML with the `--html` switch:
 pdoc --html csv
 ```
 
-Generate Markdown with the `--markdown` switch:
-
-```
-pdoc --markdown csv
-```
-
 A file called `csv.m.html` will be written to the current directory.
 
 Or start an HTTP server that shows documentation for any installed module:
@@ -101,6 +95,14 @@ pdoc --http
 ```
 
 Then open your web browser to `http://localhost:8080`.
+
+Generate Markdown with the `--markdown` switch:
+
+```
+pdoc --markdown csv
+```
+
+This will generate a directory called csv containing the generated markdown.
 
 There are many other options to explore. You can see them all by running:
 
